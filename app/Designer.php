@@ -13,13 +13,4 @@ class Designer extends Model implements EmployeeInterface
     {
         return $this->skills;
     }
-
-    public function showSkills()
-    {
-        $data = '';
-        foreach($this->skills as $skill) {
-            $data .= '- ' . $skill . PHP_EOL;
-        }
-        return $data;
-    }
 }

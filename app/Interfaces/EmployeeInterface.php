@@ -6,5 +6,4 @@ interface EmployeeInterface
 {
     public function getSkills();
 
-    public function showSkills();
 }

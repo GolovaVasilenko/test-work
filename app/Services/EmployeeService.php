@@ -16,7 +16,11 @@ class EmployeeService implements CanInterface
 
     public function showAllSkills()
     {
-        return $this->employee->showSkills();
+        $data = '';
+        foreach($this->employee->getSkills() as $skill) {
+            $data .= '- ' . $skill . PHP_EOL;
+        }
+        return $data;
     }
 
     public function can($skill)
