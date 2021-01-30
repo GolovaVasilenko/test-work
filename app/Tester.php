@@ -2,9 +2,24 @@
 
 namespace App;
 
+use App\Interfaces\EmployeeInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class Tester extends Model
+class Tester extends Model implements EmployeeInterface
 {
-    public $skills = [  'writeCode', 'testCode', 'talkManager'];
+    protected $skills = [  'createTasks', 'testCode', 'talkManager' ];
+
+    public function getSkills()
+    {
+       return $this->skills;
+    }
+
+    public function showSkills()
+    {
+        $data = '';
+        foreach($this->skills as $skill) {
+            $data .= '- ' . $skill . PHP_EOL;
+        }
+        return $data;
+    }
 }
