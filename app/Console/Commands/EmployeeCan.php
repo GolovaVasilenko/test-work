@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Controllers\EmployeeController;
 use App\Services\EmployeeService;
 use Illuminate\Console\Command;
 
@@ -12,14 +13,14 @@ class EmployeeCan extends Command
      *
      * @var string
      */
-    protected $signature = 'company:employee {employee}';
+    protected $signature = 'employee:can {employee} {skill}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Get a list of worker skills: programmer, designer, tester, manager';
+    protected $description = 'Get employee skills: programmer, designer, tester, manager';
 
     /**
      * Create a new command instance.
@@ -38,6 +39,7 @@ class EmployeeCan extends Command
      */
     public function handle()
     {
-        //
+        $employee = new EmployeeController($this->argument('employee'));
+        $employee->employeeCan($this->argument('skill'));
     }
 }

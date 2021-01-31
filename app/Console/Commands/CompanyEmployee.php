@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Console\Command;
 
 class CompanyEmployee extends Command
@@ -11,19 +12,21 @@ class CompanyEmployee extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'company:employee {employee}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Get a list of worker skills: programmer, designer, tester, manager';
+
+    protected $employee = null;
 
     /**
      * Create a new command instance.
      *
-     * @return void
+     * @param EmployeeController $employee
      */
     public function __construct()
     {
@@ -37,6 +40,7 @@ class CompanyEmployee extends Command
      */
     public function handle()
     {
-        //
+        $this->employee = new EmployeeController($this->argument('employee'));
+        $this->employee->showSkills();
     }
 }
