@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Services\EmployeeService;
 use Illuminate\Console\Command;
 
 class EmployeeCan extends Command
@@ -11,14 +12,14 @@ class EmployeeCan extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'company:employee {employee}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Get a list of worker skills: programmer, designer, tester, manager';
 
     /**
      * Create a new command instance.
